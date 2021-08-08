@@ -24,11 +24,16 @@ Resources:
           mongoUri: VALUE
           truststore: rds-ca-certsroot.jks
       Events:
-        BookApp:
+        GetBookApp:
           Type: Api
           Properties:
             Path: /books
             Method: get
+        PostBookApp:
+          Type: Api
+          Properties:
+            Path: /books
+            Method: post
 
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
