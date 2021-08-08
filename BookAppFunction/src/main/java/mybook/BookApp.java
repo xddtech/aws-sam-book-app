@@ -7,13 +7,18 @@ import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Handler for requests to Lambda function.
  */
 public class BookApp implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
 
+    private static final Logger logger = LoggerFactory.getLogger(RequestHandler.class);
+
     public APIGatewayProxyResponseEvent handleRequest(final APIGatewayProxyRequestEvent input, final Context context) {
+        logger.info("Start request =======================================================");
 
         APIGatewayProxyResponseEvent response = new APIGatewayProxyResponseEvent()
                 .withHeaders(Utils.getResponseHeaders());
@@ -23,7 +28,7 @@ public class BookApp implements RequestHandler<APIGatewayProxyRequestEvent, APIG
                     .withStatusCode(200)
                     .withBody(output);
         } catch (IOException e) {
-
+            logger.error("Request failed ##########", e);
             return response
                     .withBody("{}")
                     .withStatusCode(500);
