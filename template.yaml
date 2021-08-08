@@ -10,20 +10,22 @@ Globals:
   Function:
     Timeout: 20
 
+# More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 Resources:
   BookAppFunction:
-    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Type: AWS::Serverless::Function
     Properties:
       CodeUri: BookAppFunction
       Handler: mybook.BookApp::handleRequest
       Runtime: java11
       MemorySize: 512
-      Environment: # More info about Env Vars: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
+      Environment:
         Variables:
-          PARAM1: VALUE
+          mongoUri: VALUE
+          truststore: rds-ca-certsroot.jks
       Events:
         BookApp:
-          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Type: Api
           Properties:
             Path: /books
             Method: get
