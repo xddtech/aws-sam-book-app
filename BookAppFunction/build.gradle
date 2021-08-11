@@ -13,6 +13,9 @@ dependencies {
     //implementation 'com.amazonaws:aws-java-sdk-docdb:1.12.27'
     implementation 'org.mongodb:mongodb-driver:3.12.9'
 
+    // https://mvnrepository.com/artifact/com.amazonaws/elasticache-java-cluster-client
+    implementation 'com.amazonaws:elasticache-java-cluster-client:1.1.2'
+
     implementation 'com.google.code.gson:gson:2.8.6'
 
     implementation 'org.apache.logging.log4j:log4j-api:2.13.0'

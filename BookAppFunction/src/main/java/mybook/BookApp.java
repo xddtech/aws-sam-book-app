@@ -20,7 +20,7 @@ public class BookApp implements RequestHandler<APIGatewayProxyRequestEvent, APIG
     private static final Logger logger = LoggerFactory.getLogger(RequestHandler.class);
 
     public APIGatewayProxyResponseEvent handleRequest(final APIGatewayProxyRequestEvent input, final Context context) {
-        logger.info("Start request =======================================================");
+        logger.info("Start request ===================8/11====================================");
         APIGatewayProxyResponseEvent response = Utils.getResponseEventWithHeader();
         try {
             RequestEventService service = RequestServiceFactory.getService(input);

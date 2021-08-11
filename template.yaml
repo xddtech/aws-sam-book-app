@@ -22,6 +22,9 @@ Resources:
       Environment:
         Variables:
           docdbUri: mongodb://dbadmin:Con#doc16@docdb-2021-08-07-17-18-03.cluster-ckddmwjkjoew.us-east-2.docdb.amazonaws.com:27017/?ssl=true&ssl_ca_certs=rds-combined-ca-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false
+          memcached: xdd-memcached-cluster.e4ojjs.cfg.use2.cache.amazonaws.com
+          memcachedPort: 11211
+          useCache: true
       Events:
         GetBookApp:
           Type: Api
