@@ -34,7 +34,7 @@ public class GetBookService implements RequestEventService {
         if (checkCache) {
             String books = MemcachedService.getInstance().get("books");
             if (books != null) {
-                logger.info("Get books from memcached");
+                logger.info("Found books in memcached");
                 return books;
             }
         }
@@ -51,7 +51,7 @@ public class GetBookService implements RequestEventService {
         String books = new Gson().toJson(array);
         if (checkCache) {
             MemcachedService.getInstance().set("books", books);
-            logger.info("Save books into memcahed");
+            logger.info("Saved books in memcahed");
         }
         return books;
     }
